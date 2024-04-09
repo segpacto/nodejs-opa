@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  user-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.user
+    volumes:
+      - ./user-service.js:/app/user-service.js
+    ports:
+      - "3000:3000"
+    networks:
+      - opa-network
+    depends_on:
+      - opa-sidecar
+
+  order-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.order
+    volumes:
+      - ./order-service.js:/app/order-service.js
+    ports:
+      - "4000:4000"
+    networks:
+      - opa-network
+    depends_on:
+      - opa-sidecar
+
+  opa-sidecar:
+    image: openpolicyagent/opa:latest
+    command:
+      - "run"
+      - "--server"
+      - "--log-level=debug"
+      - "policy.rego"
+    volumes:
+      - ./policy.rego:/policy.rego
+    ports:
+      - "8181:8181"
+    networks:
+      - opa-network
+
+networks:
+  opa-network:
