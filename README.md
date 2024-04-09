@@ -14,9 +14,6 @@ Once the services are up and running, you can access the following endpoints:
 - Order Service: http://localhost:4000
 - OPA Service: http://localhost:8181
 
-## Docker Sidecar container
-Ideally, all services would run on the same network as the opa service, facilitating communication and reducing latencies determining the access control . The `opa-service` can be setup as sidecar container alongside the other services, handling authorisation policy evaluation centrally.
-
 ## Access Control
 
 The `opa-service` evaluates authorization policies based on user roles and access time. By default, only authenticated users with admin roles have access to certain endpoints during working hours. You can modify the authorization policies in the Rego files (`authz.rego`) within the `opa-service` directory to customize access control rules according to your requirements.
