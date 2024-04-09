@@ -27,3 +27,8 @@ The `opa-service` evaluates authorization policies based on user roles and acces
 - **Configuration**: Remove hard-coded URLs from the order and user services, and instead use environment variables or configuration files for better flexibility and portability.
 - **Role Acquisition**: Implement a more robust and secure method for acquiring user roles in the services, following best practices. Roles can be extracted from JWTs or dynamically defined at service level.
 - **Express Middleware**: Consider moving the request for authorisation from the OPA service to an Express middleware in the services for improved performance and reliability.
+
+`Notes:`
+- This code was created as Proof Of Concept only
+- The code is not meant to be used in any production environment
+- The code might not follow all the good practices in terms of code good practices and security
