@@ -16,7 +16,7 @@ Once the services are up and running, you can access the following endpoints:
 
 ## Access Control
 
-The `opa-service` evaluates authorization policies based on user roles and access time. By default, only authenticated users with admin roles have access to certain endpoints during working hours. You can modify the authorization policies in the Rego files (`authz.rego`) within the `opa-service` directory to customize access control rules according to your requirements.
+The `opa-service` evaluates authorization policies based on user roles and access time. By default, only authenticated users or with admin roles have access to certain endpoints during working hours. You can modify the authorization policies in the Rego file (`policy.rego`) to customize access control rules according to your requirements.
 
 ## Potential Improvements
 
